@@ -1,0 +1,93 @@
+<html>
+
+	<head>
+		<title>Loan Calculator</title>
+		
+		<style type=text/css>
+			.leftdiv
+			{
+			float: left;
+			background-color:lightgray;
+			}
+			
+			.rightdiv
+			{
+			float: left;
+			background-color:yellow;
+			}
+			
+			div{
+				padding:1%;
+				width:45%;
+			}
+			
+		</style>
+		
+	</head>
+	
+		<body>
+		
+			<div class="leftdiv">
+			
+			<p>
+			<label for="loantype"><b>Loan Type</b></label><br>
+			<select name="loantype" id="loantype">
+				<option value="personal">Personal</option>
+				<option value="fixed">Join</option>
+			</select><br>
+			
+			<label for="accounttype"><b>Account Type</b></label><br>
+			<select name="accounttype" id="accounttype">
+				<option value="other">Other</option>
+				<option value="savings">Savings</option>
+			</select><br><br>
+			
+			<form>
+				<b>Amount</b><br><input type="text" id="am" onkeyup="tap()"><br><br>
+				<b>Loan Term(Years)</b><br><input type="text" id="lt" onkeyup="tap()"><br><br>
+				<b>Interest Rate</b><br><input type="text" id="ir" onkeyup="tap()"><br><br>
+			</form>
+			
+			</div>
+			
+			<div class="rightdiv">
+			
+			<p>
+			<b>Monthly Repayment</b><p id="mr"></p><br><br>
+			<b>Total Amount Payable</b><p id="tap"></p><br><br>
+			<b>Full Amount</b><p id="fa"></p><br><br><br>
+			</p>
+			
+			<p><font size="2">*Please note that the amount<br>displayed is an approximate<br>value.</font></p>
+			<p><font size="2">*Amount is subjected to change</font></p>
+			
+			</div>
+			
+			<script type="text/JavaScript">
+				function tap(){
+					var am=document.getElementById("am").value;
+					var lt=document.getElementById("lt").value;
+					var ir=document.getElementById("ir").value;
+					var fullinter=(am*lt*ir)/100;
+					var tap=Number(am)+Number(fullinter);
+					document.getElementById("tap").innerHTML=tap;
+				
+					var am=document.getElementById("am").value;
+					var lt=document.getElementById("lt").value;
+					var ir=document.getElementById("ir").value;
+					var fullinter=(am*lt*ir)/100;
+					var tap=Number(am)+Number(fullinter);
+					var lt=document.getElementById("lt").value;
+					var term=(lt)*12
+					var mr=(tap)/(term);
+					document.getElementById("mr").innerHTML=mr;	
+								
+					var am=document.getElementById("am").value;
+					document.getElementById("fa").innerHTML=am;
+				}
+				
+			</script>	
+		
+		</body>
+			
+</html>
